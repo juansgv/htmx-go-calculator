@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go HTMX Calculator</title>
+    <!-- HTMX from CDN -->
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Go HTMX Calculator</h1>
+        
+        <div class="calculator">
+            <div class="input-group">
+                <input type="number" id="num1" name="num1" placeholder="First number">
+                <input type="number" id="num2" name="num2" placeholder="Second number">
+            </div>
+            
+            <div class="buttons">
+                <button hx-post="/calculate" 
+                        hx-include="#num1, #num2" 
+                        hx-vals='{"operator": "add"}' 
+                        hx-target="#result" 
+                        hx-swap="innerHTML">+</button>
+                        
+                <button hx-post="/calculate" 
+                        hx-include="#num1, #num2" 
+                        hx-vals='{"operator": "subtract"}' 
+                        hx-target="#result" 
+                        hx-swap="innerHTML">-</button>
+                        
+                <button hx-post="/calculate" 
+                        hx-include="#num1, #num2" 
+                        hx-vals='{"operator": "multiply"}' 
+                        hx-target="#result" 
+                        hx-swap="innerHTML">×</button>
+                        
+                <button hx-post="/calculate" 
+                        hx-include="#num1, #num2" 
+                        hx-vals='{"operator": "divide"}' 
+                        hx-target="#result" 
+                        hx-swap="innerHTML">÷</button>
+                
+                <button onclick="clearInputs()" class="clear">C</button>
+            </div>
+            
+            <div id="result" class="result">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function clearInputs() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
+
