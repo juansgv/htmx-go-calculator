@@ -1,1 +1,3 @@
-# Simple web calculator app, backend Go and frontend HTMX.
+# Simple web calculator app, 
+## Description:
+backend Go and frontend HTMX.
