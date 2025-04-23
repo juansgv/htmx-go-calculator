@@ -1,3 +1,5 @@
-# Simple web calculator app, 
+# Web calculator app 
 ## Description:
-backend Go and frontend HTMX.
+Backend Go and frontend HTMX.
+### Features:
+Fastest.
